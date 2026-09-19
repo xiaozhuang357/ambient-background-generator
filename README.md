@@ -2,6 +2,16 @@
 
 一个完全在浏览器本地运行的图片氛围背景生成器。选择一张照片后，网页会提取主色并生成带有静态 Mesh、饱和模糊图和动态可读性遮罩的背景。生成结果会铺满整个浏览器，原图则以居中封面形式呈现。
 
+## 效果展示
+
+下面三张截图是 `samples/` 中示例照片的真实渲染结果（Chrome，1440 × 900 视口，未作后期处理）：
+
+| `sunset-baltic-sea.jpg` | `mountain-wilderness.jpg` | `autumn-forest-path.jpg` |
+| --- | --- | --- |
+| ![波罗的海日落的氛围背景](docs/screenshots/sunset-baltic-sea.jpg) | ![荒野山脉的氛围背景](docs/screenshots/mountain-wilderness.jpg) | ![秋日林径的氛围背景](docs/screenshots/autumn-forest-path.jpg) |
+
+复现方式：`npm run dev` 后把 `samples/` 里的照片拖入页面即可。
+
 ## 功能
 
 - 拖放或选择 PNG、JPEG、WebP
@@ -109,13 +119,29 @@ src/
     index.ts            对外接口
   main.ts               演示网页交互
   style.css             演示网页样式
+samples/                示例照片（CC0 授权，出处见「样图与出处」）
+docs/screenshots/       「效果展示」中的渲染截图
 ```
 
-测试素材均由代码生成，不包含第三方照片。
+单元测试素材由代码生成，不依赖 `samples/` 中的示例照片。
 
 ## 隐私
 
 网页没有上传、分析或遥测接口。图片解码、取色、合成和下载全部在当前浏览器标签页中完成。
+
+## 样图与出处
+
+`samples/` 中的示例照片取自 Wikimedia Commons，均为 CC0 1.0（公有领域奉献）授权，可自由使用与再分发。为便于署名，出处与作者记录如下：
+
+| 文件 | 作者 | 授权 | 来源 |
+| --- | --- | --- | --- |
+| `sunset-baltic-sea.jpg` | Kavig624 | CC0 1.0 | [Idyllic Sunset Over Baltic Sea Shoreline](https://commons.wikimedia.org/wiki/File:Idyllic_Sunset_Over_Baltic_Sea_Shoreline.jpg) |
+| `mountain-wilderness.jpg` | David Marcu | CC0 1.0 | [Alone in the unspoilt wilderness](https://commons.wikimedia.org/wiki/File:Alone_in_the_unspoilt_wilderness_%28Unsplash%29.jpg) |
+| `autumn-forest-path.jpg` | Vovogov90 | CC0 1.0 | [Autumn Forest Path with Tall Trees](https://commons.wikimedia.org/wiki/File:Autumn_Forest_Path_with_Tall_Trees.jpg) |
+
+授权全文见 [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hans)。
+
+入库时统一重新压缩为 1600px 宽、JPEG 质量 78，`docs/screenshots/` 中的截图同样由这些照片渲染而来。照片与截图不在本仓库 MIT 许可的覆盖范围内，按上表所列授权分发。
 
 ## 许可证
 
